@@ -1,0 +1,29 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "fullName": "Test User",
+        "email": "johndoe@gmail.com",
+        "userName": "user1",
+        "password": "password"
+      }
+    ],
+    "articles": [
+        
+    ],
+    "messages": [
+    
+    ],
+    "events": [
+
+    ],
+    "tasks": [
+
+    ],
+    "images": [
+
+    ],
+    "friends": [
+
+    ]
+  }
