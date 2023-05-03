@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import { LandingPageNavBar } from "../nav/LandingPageNavBar";
 import "./Login.css"
 
 export const Login = () => {
@@ -19,18 +20,21 @@ export const Login = () => {
                     localStorage.setItem("authorized_user", JSON.stringify({
                         id: user.id,
                         userName: user.userName,
-                        fullName: user.fullName
+                        fullName: user.fullName,
+                        password: user.password
                     }))
-
-                    navigate("/")
-                }
-                else {
+                if (password === user.password) {
+                    navigate("/dashboard")
+                } else  {
                     window.alert("Invalid login")
                 }
+            }
             })
     }
 
     return (
+        <>
+        <LandingPageNavBar/>
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
@@ -40,7 +44,7 @@ export const Login = () => {
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             value={email}
-                            onChange={evt => set(evt.target.value)}
+                            onChange={evt => setEmail(evt.target.value)}
                             className="form-control"
                             placeholder="Email address"
                             required autoFocus />
@@ -49,7 +53,7 @@ export const Login = () => {
                         <label htmlFor="inputPassword"> Password </label>
                         <input type="password"
                             value={password}
-                            onChange={evt => set(evt.target.value)}
+                            onChange={evt => setPassword(evt.target.value)}
                             className="form-control"
                             placeholder="Password"
                             required autoFocus />
@@ -59,7 +63,7 @@ export const Login = () => {
                             Sign in
                         </button>
                         <button type="button">
-                            <a href="#">Forgot password?</a>
+                            <a href="#">Forgot password</a>
                         </button>
                     </fieldset>
                 </form>
@@ -68,5 +72,6 @@ export const Login = () => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+    </>
     )
 }

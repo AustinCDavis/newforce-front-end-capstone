@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { LandingPageNavBar } from "../nav/LandingPageNavBar"
 import "./Login.css"
+
 
 export const Register = (props) => {
     const [customer, setCustomer] = useState({
@@ -52,6 +54,8 @@ export const Register = (props) => {
     }
 
     return (
+    <>
+    <LandingPageNavBar />
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Nutshell</h1>
@@ -87,5 +91,6 @@ export const Register = (props) => {
                 </fieldset>
             </form>
         </main>
+    </>
     )
 }

@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./NavBar.css"
 
-export const NavBar = () => {
-    const navigate = useNavigate()
+export const LandingPageNavBar = () => {
+
   return (
+    <header>
+
     <nav className="navbar">
 
       <ul className="nav">
@@ -24,5 +26,6 @@ export const NavBar = () => {
         </li>
       </ul>
     </nav>
+  </header>
   )
 }

@@ -1,11 +1,13 @@
+import { LandingPageNavBar } from "../nav/LandingPageNavBar"
 export const LandingPage = () => {
-
     return (
+        <>
+        <LandingPageNavBar />
         <main className="container--login">
             <section>
-                    <h1>This might work</h1>
-                    <h2>Please sign in</h2>
+                   <h2>Some Content here</h2>
             </section>
         </main>
+        </>
     )
 }

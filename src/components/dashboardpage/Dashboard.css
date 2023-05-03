@@ -1,0 +1,48 @@
+
+.grid {
+    display: grid;
+    grid-template-columns: 5% 93.1%;
+    grid-template-rows: 8% 93%;
+    grid-gap: .5em;
+    background-color: aqua;
+    padding-bottom: 0%;
+    }
+    
+nav,
+footer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+    
+.grid > * {
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    background-color: bisque;
+}
+
+nav,
+main,
+aside,
+footer {
+background: lightgray;
+}
+
+aside{
+    height: max-content;
+}
+
+nav{
+grid-column: 2 / 4;
+}
+nav, footer {
+grid-column: 2 / 4;
+}
+
+section {
+min-width: 15em;
+}

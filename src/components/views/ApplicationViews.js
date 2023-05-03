@@ -1,23 +1,17 @@
-import { Outlet, Route, Routes } from "react-router-dom"
-import { Profile } from "../profile/Profile"
+import { Route, Routes} from "react-router-dom"
+import { Profile } from "../profile/Profile";
+import { LandingPage } from "../landingpage/LandingPage";
+import { Strategy } from "../strategypage/StrategyPage";
+import { Dashboard } from "../dashboardpage/Dashboard";
 
 
 export const ApplicationViews = () => {
     return (
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h1 className="title--main">Next Trade</h1>
-              <div>Your one-stop-shop to get all stuff.</div>
-              <div className="images-container"></div>
-              <Outlet />
-            </>
-          }
-        >
-          <Route path="profile" element={<Profile />} />
-        </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="profile" element={<Profile />} />
+              <Route path="strategy" element={<Strategy />} />
+            </Route>
       </Routes>
     );
   };

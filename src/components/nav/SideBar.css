@@ -1,0 +1,30 @@
+.col-sm-auto {
+    height: 92%;
+    display: flex;
+}
+
+.nav-pills {
+    margin-top: 20%;
+}
+.text-house {
+    color: #1B1D21;
+}
+.text-clipboard{
+    color: #1B1D21;
+}
+.text-chart {
+    color: #1B1D21;
+}
+.text-people {
+    color: #1B1D21;
+}
+.text-journal {
+    color: #1B1D21;
+}
+.text-gear {
+    color: #1B1D21;
+}
+.text-profile {
+    
+    color: #1B1D21;
+}
