@@ -17,7 +17,7 @@ export const Dashboard = () => {
                 <section className="box d">
                 <h1>Hello Dashboard</h1>
                 </section>
-                <footer>
+                <footer className="box e">
                 </footer>
             </main>
         </div>

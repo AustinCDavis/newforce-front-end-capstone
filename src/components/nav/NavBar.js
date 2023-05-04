@@ -19,7 +19,7 @@ export const DashboardPageNavBar = () => {
                   </button>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Action</a></li>
-                      <Link to="/dashboard/Profile">
+                      <Link to="/Profile">
                     <li><a class="dropdown-item" href="#">Profile</a></li>
                       </Link>
                     {

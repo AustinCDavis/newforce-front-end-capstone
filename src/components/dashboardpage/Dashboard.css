@@ -8,8 +8,8 @@
     padding-bottom: 0%;
     }
     
-nav,
-footer {
+.a,
+.e {
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -21,28 +21,28 @@ footer {
     justify-content: center;
 }
 
-section {
+.d {
     background-color: bisque;
 }
 
-nav,
-main,
-aside,
-footer {
+.a,
+.c,
+.b,
+.e {
 background: lightgray;
 }
 
-aside{
+.b{
     height: max-content;
 }
 
-nav{
+.a{
 grid-column: 2 / 4;
 }
-nav, footer {
+.a, .e {
 grid-column: 2 / 4;
 }
 
-section {
+.d {
 min-width: 15em;
 }

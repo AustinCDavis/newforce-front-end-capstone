@@ -10,7 +10,7 @@ export const SideBar = () => {
                 <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
                     <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
                         <li>
-                            <a href="#" class="nav-link py-1 px-3 " title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                            <a href="http://localhost:3000/dashboard" class="nav-link py-1 px-3 " title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <i class="bi-house-fill fs-1 text-house"></i>
                             </a>
                         </li>

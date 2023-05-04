@@ -8,10 +8,9 @@ import { Dashboard } from "../dashboardpage/Dashboard";
 export const ApplicationViews = () => {
     return (
       <Routes>
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path="profile" element={<Profile />} />
-              <Route path="strategy" element={<Strategy />} />
-            </Route>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="strategy" element={<Strategy />} />
       </Routes>
     );
   };

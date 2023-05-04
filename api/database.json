@@ -1,29 +1,24 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "fullName": "Test User",
-        "email": "johndoe@gmail.com",
-        "userName": "user1",
-        "password": "password"
-      }
-    ],
-    "articles": [
-        
-    ],
-    "messages": [
-    
-    ],
-    "events": [
-
-    ],
-    "tasks": [
-
-    ],
-    "images": [
-
-    ],
-    "friends": [
-
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Test User3",
+      "email": "johndoe2@gmail.com",
+      "userName": "user2",
+      "password": "password"
+    },
+    {
+      "email": "testing@gmail.com",
+      "fullName": "Test User",
+      "userName": "tester1",
+      "password": "password1",
+      "id": 2
+    }
+  ],
+  "articles": [],
+  "messages": [],
+  "events": [],
+  "tasks": [],
+  "images": [],
+  "friends": []
+}
