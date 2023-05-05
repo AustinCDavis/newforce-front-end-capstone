@@ -1,6 +1,5 @@
 import { Route, Routes} from "react-router-dom"
 import { Profile } from "../profile/Profile";
-import { LandingPage } from "../landingpage/LandingPage";
 import { Strategy } from "../strategypage/StrategyPage";
 import { Dashboard } from "../dashboardpage/Dashboard";
 

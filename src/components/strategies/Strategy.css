@@ -1,0 +1,13 @@
+.strategy {
+    border: 1.5px dashed black;
+    border-radius: 1rem;
+    margin: .5rem;
+    padding: 1rem;
+}
+hr {
+    margin: .25rem;
+}
+
+.header {
+    border-bottom: .75px dashed black;
+}

@@ -18,3 +18,11 @@
   margin-left: 11.5%;
   margin-right: 20%;
 }
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.dropdown:hover {
+  background-color: none !important;
+
+}

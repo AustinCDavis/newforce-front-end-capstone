@@ -15,10 +15,37 @@
       "id": 2
     }
   ],
-  "articles": [],
+  "strategies": [
+    
+    {
+      "userId": 1,
+      "title": "CAHOLD",
+      "description": "Close above the high of the low day",
+      "rules": "Close above the high of the low day",
+      "risk": 6,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "CAHOLD 2",
+      "description": "Different CAHOLD",
+      "rules": "see ^",
+      "risk": 4,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "CAHOLD 3 TEST",
+      "description": "CAHOLD 3 TEST",
+      "rules": "CAHOLD 3 TEST",
+      "risk": 6,
+      "id": 11
+    }
+  ],
+  "journals": [],
+  "strategyJournals": [],
   "messages": [],
   "events": [],
-  "tasks": [],
   "images": [],
   "friends": []
 }
