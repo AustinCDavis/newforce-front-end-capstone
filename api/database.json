@@ -2,10 +2,10 @@
   "users": [
     {
       "id": 1,
-      "fullName": "Test User3",
-      "email": "johndoe2@gmail.com",
-      "userName": "user2",
-      "password": "password"
+      "fullName": "Test User6",
+      "email": "johndoe1@gmail.com",
+      "userName": "user3",
+      "password": "password2"
     },
     {
       "email": "testing@gmail.com",
@@ -16,7 +16,6 @@
     }
   ],
   "strategies": [
-    
     {
       "userId": 1,
       "title": "CAHOLD",

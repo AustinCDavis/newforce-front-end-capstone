@@ -1,9 +1,7 @@
 import "./StrategyPage.css";
 import { DashboardPageNavBar } from "../nav/NavBar"
 import { SideBar } from "../nav/SideBar";
-import { StrategyForm } from "../strategies/StrategyForm"
 import { StrategyList } from "../strategies/StrategyList";
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
 import { MyVerticallyCenteredModal } from "../strategies/StrategyForm";

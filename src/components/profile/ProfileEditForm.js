@@ -1,36 +1,45 @@
 import { useEffect, useState } from "react"
 import { getUserById, editUser } from "../APIManager/UsersManager"
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+import React from "react";
 
-export const UserForm = () => {
-  // TODO: Provide initial state for profile
-  const [profile, updateprofile] = useState({
-    id: 0,
-    fullName: "",
-    userName: "",
-    email: "",
-    password: "",
-})
-
-const localAuthorizedUser = localStorage.getItem("authorized_user")
-const authorizedUserObject = JSON.parse(localAuthorizedUser)
-
-// TODO: Get user profile info from API and update state
-useEffect(() => {
-    getUserById(authorizedUserObject.id)
-    .then((data) => {
-        const userObject = data[0]
-        updateprofile(userObject)
+export const UserForm = (props) => {
+    // TODO: Provide initial state for profile
+    const [profile, updateprofile] = useState({
+        id: 0,
+        fullName: "",
+        userName: "",
+        email: "",
+        password: "",
     })
+    
+    const localAuthorizedUser = localStorage.getItem("authorized_user")
+    const authorizedUserObject = JSON.parse(localAuthorizedUser)
+    
+    //Profile update alert function
+    function ProfileUpdateAlert() {
+            return (
+                
+                <Alert variant="secondary" dismissible>
+                <Alert.Heading>Changes Made</Alert.Heading>
+                    <p>You recently made changes to your profile!</p>
+                        <hr />
+                    <p>Nice job staying up to date!</p>
+            </Alert>
+        )
+    }
+
+    // TODO: Get user profile info from API and update state
+    useEffect(() => {
+        getUserById(authorizedUserObject.id)
+        .then((data) => {
+            const userObject = data[0]
+            updateprofile(userObject)
+        })
 }, [])
 
-const [feedback, setFeedback] = useState("")
-
-useEffect(() => {
-    if (feedback !== "") {
-        // Clear feedback to make entire element disappear after 3 seconds
-        setTimeout(() => setFeedback(""), 3000);
-    }
-}, [feedback])
 
 const handleSaveButtonClick = (event) => {
     event.preventDefault()
@@ -41,18 +50,17 @@ const handleSaveButtonClick = (event) => {
     */
    editUser(profile)
    .then(() => {
-    setFeedback("Profile successfully saved")
+       props.onHide()
+       ProfileUpdateAlert()
     })
 }
 
-
-
 return (<>
-
-<div class="modal-body">
-<div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
-{feedback}
-</div>
+    
+<Modal.Header closeButton>
+                <Modal.Title>Update Profile</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
     <form className="profile">
         <fieldset>
             <div className="form-group">
@@ -126,17 +134,28 @@ return (<>
             </div>
         </fieldset>
             </form>
-</div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button
-                type="button" 
-                class="btn btn-primary"
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
-                Save Profile
-            </button>                            
-        </div>
+        </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={props.onHide}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
+                  Update Profile
+                </Button>
+              </Modal.Footer>
 </>
 )
 }
+
+export const MyVerticallyCenteredProfileModal= (props) => {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <UserForm onHide={props.onHide} show={props.show} />
+      </Modal>
+    );
+  }

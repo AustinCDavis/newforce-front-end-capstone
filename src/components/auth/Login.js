@@ -5,8 +5,8 @@ import { LandingPageNavBar } from "../nav/LandingPageNavBar";
 import "./Login.css"
 
 export const Login = () => {
-    const [email, setEmail] = useState("johndoe@gmail.com")
-    const [password, setPassword] = useState("password")
+    const [email, setEmail] = useState("johndoe1@gmail.com")
+    const [password, setPassword] = useState("password2")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -14,22 +14,28 @@ export const Login = () => {
 
         return fetch(`http://localhost:8088/users?email=${email}`)
             .then(res => res.json())
-            .then(foundUsers => {
-                if (foundUsers.length === 1) {
-                    const user = foundUsers[0]
-                    localStorage.setItem("authorized_user", JSON.stringify({
-                        id: user.id,
-                        userName: user.userName,
-                        fullName: user.fullName,
-                        password: user.password
-                    }))
-                if (password === user.password) {
-                    navigate("/dashboard")
-                } else  {
+            .then(foundUser => {
+                if (foundUser.length === 1 ) {
+                    if (foundUser[0].password === password){
+
+                        const user = foundUser[0]
+                        localStorage.setItem("authorized_user", JSON.stringify({
+                            id: user.id,
+                            userName: user.userName,
+                            fullName: user.fullName,
+                            password: user.password
+                        }))
+                        navigate("/dashboard")
+                    } else  {
                     window.alert("Invalid login")
+                    console.log(foundUser[0].password)
+                    console.log(password)
                 }
             }
-            })
+        else {
+            window.alert("Invalid login")
+        }}
+            )
     }
 
     return (

@@ -1,9 +1,30 @@
 import "./Profile.css";
 import { DashboardPageNavBar } from "../nav/NavBar"
 import { SideBar } from "../nav/SideBar";
-import { UserForm } from "./ProfileForm";
+import { MyVerticallyCenteredProfileModal, UserForm } from "./ProfileEditForm";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import React, {useState} from "react";
 
  export const Profile = () => {
+   
+    function UpdateStrategyModal() {
+        const [modalShow, setModalShow] = React.useState(false);
+      
+        return (
+          <>
+            <Button variant="primary" onClick={() => setModalShow(true)}>
+              Edit Profile
+            </Button>
+      
+            <MyVerticallyCenteredProfileModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
+          </>
+        );
+      }
+   
    return (<>
       <div className="grid">
           <nav className="box a">
@@ -16,23 +37,8 @@ import { UserForm } from "./ProfileForm";
             <section className="box d">
               <h1>Hello Profile Page</h1>
 
-                {/* <!-- Button trigger modal --> */}
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Edit Profile
-                </button>
-
-                {/* <!-- Modal --> */}
-                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h2 className="profile__title">Edit Profile</h2>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <UserForm />
-                        </div>
-                    </div>
-                </div>
+                {/* <!-- Progile modal --> */}
+                <UpdateStrategyModal />
             </section>
             <footer className="box e">
 

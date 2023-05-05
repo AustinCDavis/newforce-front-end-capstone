@@ -35,9 +35,9 @@ const handleSaveButtonClick = (event) => {
         TODO: Perform the PUT fetch() call here to update the profile.
         Navigate user to home page when done.
     */
-   editUser(profile)
+   editStrategy(strategy)
    .then(() => {
-    setFeedback("Profile successfully saved")
+    setFeedback("Strategy successfully updated")
     })
 }
 
