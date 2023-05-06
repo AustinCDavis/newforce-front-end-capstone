@@ -1,11 +1,8 @@
 .col-sm-auto {
-    height: 92%;
+    height: 93%;
     display: flex;
 }
 
-.nav-pills {
-    margin-top: 20%;
-}
 .text-house {
     color: #1B1D21;
 }
@@ -27,4 +24,8 @@
 .text-profile {
     
     color: #1B1D21;
+}
+
+ul {
+    margin-top: 25%;
 }

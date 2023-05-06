@@ -9,8 +9,8 @@ import { MyVerticallyCenteredModal } from "../strategies/StrategyForm";
 
 
 export const Strategy = () => {
-    
-    function NewStrategyModal() {
+  
+  function NewStrategyModal() {
         const [modalShow, setModalShow] = React.useState(false);
       
         return (

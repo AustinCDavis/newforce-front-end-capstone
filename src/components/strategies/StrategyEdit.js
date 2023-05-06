@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getStrategyById } from "../APIManager/StrategiesManager" 
-import { editStrategy } from "../APIManager/StrategiesManager"
+import { editStrategy, getStrategyById } from "../APIManager/StrategiesManager";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import React from "react";
 
-export const StrategyEditForm = () => {
-  
-    const {strategyId} = useParams()
+export const StrategyEditForm = (props) => {
 
-    // TODO: Provide initial state for profile
-  const [strategy, updateStrategy] = useState({
+    //utilizing local storage to retrieve selected strategy
+    const currentStrategy = localStorage.getItem("current_strategy")
+    const currentStrategyObject = JSON.parse(currentStrategy)
 
-    title: "",
-    description: "",
-    rules: "",
-    risk: 0
-})
-
-const localAuthorizedUser = localStorage.getItem("authorized_user")
-const authorizedUserObject = JSON.parse(localAuthorizedUser)
-
-// TODO: Get user profile info from API and update state
-useEffect(() => {
-    getStrategyById(strategyId)
-    .then((data) => {
-        const strategyObject = data[0]
-        updateStrategy(strategyObject)
+    // TODO: Provide initial state for strategy
+    const [strategy, updateStrategy] = useState({
+        id: currentStrategyObject.id,
+        title: currentStrategyObject.title,
+        description: currentStrategyObject.description,
+        rules: currentStrategyObject.rules,
+        risk: +currentStrategyObject.risk
     })
-}, [strategyId])
+    
+
+    // TODO: Get user strategy info from API and update state
+    useEffect(() => {
+        getStrategyById(currentStrategyObject.id)
+        .then((data) => {
+            const strategyObject = data
+            updateStrategy(strategyObject)
+        })
+}, [])
+
 
 const handleSaveButtonClick = (event) => {
     event.preventDefault()
@@ -34,105 +36,117 @@ const handleSaveButtonClick = (event) => {
     /*
         TODO: Perform the PUT fetch() call here to update the profile.
         Navigate user to home page when done.
-    */
-   editStrategy(strategy)
-   .then(() => {
-    setFeedback("Strategy successfully updated")
-    })
+        */
+       editStrategy(strategy?.id, strategy)
+       .then(() => {
+           props.onHide()
+        })
+        window.alert("Startegy successfully updated!")
 }
 
-
-
 return (<>
+    
+<Modal.Header closeButton>
+                <Modal.Title>Update Strategy</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <form className="startegyForm">
 
-<div class="modal-body">
-<div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
-{feedback}
-</div>
-    <form className="profile">
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="specialty">Name:</label>
-                <input
-                    required autoFocus
-                    type="text"
-                    className="form-control"
-                    value={profile.fullName}
-                    onChange={
-                        (evt) => {
-                            // TODO: Update specialty property
-                            const copy = {...profile}
-                            copy.fullName = evt.target.value
-                            updateprofile(copy)
-                        }
-                    } />
-            </div>
-        </fieldset>
-        
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="name">Email:</label>
-                <input type="text"
-                    className="form-control"
-                    value={profile.email}
-                    onChange={
-                        (evt) => {
-                            // TODO: Update rate property
-                            const copy = {...profile}
-                            copy.email = evt.target.value
-                            updateprofile(copy)
-                        }
-                    } />
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="specialty">Username:</label>
-                <input
-                    required autoFocus
-                    type="text"
-                    className="form-control"
-                    value={profile.userName}
-                    onChange={
-                        (evt) => {
-                            // TODO: Update specialty property
-                            const copy = {...profile}
-                            copy.userName = evt.target.value
-                            updateprofile(copy)
-                        }
-                    } />
-            </div>
-        </fieldset>
-        <fieldset>
-            <div className="form-group">
-                <label htmlFor="specialty">Password:</label>
-                <input
-                    required autoFocus
-                    type="password"
-                    className="form-control"
-                    value={profile.password}
-                    onChange={
-                        (evt) => {
-                            // TODO: Update specialty property
-                            const copy = {...profile}
-                            copy.password = evt.target.value
-                            updateprofile(copy)
-                        }
-                    } />
-            </div>
-        </fieldset>
-            </form>
-</div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button
-                type="button" 
-                class="btn btn-primary"
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
-                Save Profile
-            </button>                            
-        </div>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="title">Title:</label>
+                            <input
+                                required autoFocus
+                                type="text"
+                                className="form-control"
+                                value={strategy?.title}
+                                onChange={
+                                    (evt) => {
+                                        // TODO: Update specialty property
+                                        const copy = { ...strategy }
+                                        copy.title = evt.target.value
+                                        updateStrategy(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="description">Description:</label>
+                            <textarea
+                                required autoFocus
+                                type="text"
+                                style={{
+                                    height: "10rem"
+                                }}
+                                className="form-control"
+                                value={strategy?.description}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...strategy }
+                                        copy.description = event.target.value
+                                        updateStrategy(copy)
+                                    }
+                                }></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="rules">Rules:</label>
+                            <textarea
+                                required autoFocus
+                                type="text"
+                                style={{
+                                    height: "10rem"
+                                }}
+                                className="form-control"
+                                value={strategy?.rules}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...strategy }
+                                        copy.rules = event.target.value
+                                        updateStrategy(copy)
+                                    }
+                                }></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="risk">Risk Percentage:</label>
+                            <input type="number"
+                                value={strategy?.risk}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...strategy }
+                                        copy.risk = event.target.value
+                                        updateStrategy(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                </form>
+        </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={props.onHide}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={((clickEvent) => handleSaveButtonClick(clickEvent))}>
+                  Update Strategy
+                </Button>
+              </Modal.Footer>
 </>
 )
 }
+
+export const MyVerticallyCenteredStrategyEditModal= (props) => {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <StrategyEditForm onHide={props.onHide} show={props.show} />
+      </Modal>
+    );
+  }

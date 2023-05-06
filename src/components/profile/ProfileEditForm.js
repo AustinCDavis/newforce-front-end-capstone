@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { getUserById, editUser } from "../APIManager/UsersManager"
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
 import React from "react";
 
 export const UserForm = (props) => {
@@ -17,19 +16,6 @@ export const UserForm = (props) => {
     
     const localAuthorizedUser = localStorage.getItem("authorized_user")
     const authorizedUserObject = JSON.parse(localAuthorizedUser)
-    
-    //Profile update alert function
-    function ProfileUpdateAlert() {
-            return (
-                
-                <Alert variant="secondary" dismissible>
-                <Alert.Heading>Changes Made</Alert.Heading>
-                    <p>You recently made changes to your profile!</p>
-                        <hr />
-                    <p>Nice job staying up to date!</p>
-            </Alert>
-        )
-    }
 
     // TODO: Get user profile info from API and update state
     useEffect(() => {
@@ -47,12 +33,12 @@ const handleSaveButtonClick = (event) => {
     /*
         TODO: Perform the PUT fetch() call here to update the profile.
         Navigate user to home page when done.
-    */
-   editUser(profile)
-   .then(() => {
-       props.onHide()
-       ProfileUpdateAlert()
-    })
+        */
+       editUser(profile)
+       .then(() => {
+           props.onHide()
+        })
+        window.alert("Profile successfully updated!")
 }
 
 return (<>
@@ -139,7 +125,7 @@ return (<>
                 <Button variant="secondary" onClick={props.onHide}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
+                <Button variant="primary" onClick={((clickEvent) => handleSaveButtonClick(clickEvent))}>
                   Update Profile
                 </Button>
               </Modal.Footer>

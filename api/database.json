@@ -4,7 +4,7 @@
       "id": 1,
       "fullName": "Test User6",
       "email": "johndoe1@gmail.com",
-      "userName": "user3",
+      "userName": "user1",
       "password": "password2"
     },
     {
@@ -26,19 +26,27 @@
     },
     {
       "userId": 1,
-      "title": "CAHOLD 2",
-      "description": "Different CAHOLD",
-      "rules": "see ^",
-      "risk": 4,
+      "title": "g",
+      "description": "g",
+      "rules": "g",
+      "risk": 1,
       "id": 6
     },
     {
       "userId": 1,
-      "title": "CAHOLD 3 TEST",
-      "description": "CAHOLD 3 TEST",
-      "rules": "CAHOLD 3 TEST",
-      "risk": 6,
-      "id": 11
+      "title": "hello",
+      "description": "h",
+      "rules": "h",
+      "risk": "2",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "k",
+      "description": "k",
+      "rules": "k",
+      "risk": "7",
+      "id": 8
     }
   ],
   "journals": [],

@@ -2,7 +2,7 @@
     border: 1.5px dashed black;
     border-radius: 1rem;
     margin: .5rem;
-    padding: 1rem;
+    padding: 0.75rem;
 }
 hr {
     margin: .25rem;
@@ -10,4 +10,12 @@ hr {
 
 .header {
     border-bottom: .75px dashed black;
+    display: flex;
+}
+
+#editButton{
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 2%;
+    padding: 0rem 0.5rem;
 }

@@ -50,19 +50,16 @@ export const StrategyForm = (props) => {
         // TODO: Perform the fetch() to POST the object to the API
         return createStrategy(strategyToSendToAPI)
         .then(() => {
-            navigate("/strategy")
+            update({
+                title: "",
+                description: "",
+                rules: "",
+                risk: 0
             })
-            .then(() => {
-                update({
-                    title: "",
-                    description: "",
-                    rules: "",
-                    risk: 0
-                })
-            })
-            // .then(() => {
-                //     setFeedback("Profile successfully saved")
-                // })
+        })
+        // .then(() => {
+            //     setFeedback("Profile successfully saved")
+            // })
             .then(() => {
                 props.onHide()
             })
