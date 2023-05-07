@@ -26,14 +26,6 @@
     },
     {
       "userId": 1,
-      "title": "g",
-      "description": "g",
-      "rules": "g",
-      "risk": 1,
-      "id": 6
-    },
-    {
-      "userId": 1,
       "title": "hello",
       "description": "h",
       "rules": "h",
@@ -42,11 +34,11 @@
     },
     {
       "userId": 1,
-      "title": "k",
-      "description": "k",
-      "rules": "k",
-      "risk": "7",
-      "id": 8
+      "title": "h",
+      "description": "j",
+      "rules": "l",
+      "risk": 3,
+      "id": 10
     }
   ],
   "journals": [],

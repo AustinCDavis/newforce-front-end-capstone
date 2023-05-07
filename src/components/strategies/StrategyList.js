@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
 import "./Strategy.css"
 import { StrategyLayout } from "./Strategy"
 import { fetchAllStrategies } from "../APIManager/StrategiesManager"
@@ -24,7 +23,7 @@ export const StrategyList = ({}) => {
             .then((strategyArray) => {
                 setStrategies(strategyArray)
             })
-        }, [strategies]
+        }, []
     )
     return <>
     <section className="strategyContainer">
@@ -38,6 +37,7 @@ export const StrategyList = ({}) => {
                 getAllStrategies={getAllStrategies}
                 currentUser={authorizedUserObject}
                 strategyObject={strategy} 
+                id={strategy.id}
                 key={`strategy--${strategy.id}`} />
                 )
             }

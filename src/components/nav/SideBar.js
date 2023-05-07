@@ -49,7 +49,7 @@ export const SideBar = () => {
                                 <OverlayTrigger placement="right" overlay={
                                 <Tooltip id="tooltip-right">Strategies</Tooltip>}>
 
-                                    <a href="http://localhost:3000/strategy" className="nav-link py-1 px-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                    <a href="http://localhost:3000/strategies" className="nav-link py-1 px-3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
                                         <i className="bi-journal-bookmark-fill fs-1 text-journal"></i>
                                     </a>
                                 </OverlayTrigger>

@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { MyVerticallyCenteredStrategyEditModal } from "./StrategyEdit";
 
-export const StrategyLayout = ({strategyObject, currentUser, getAllStrategies}) => {
+export const StrategyLayout = ({strategyObject, id, currentUser, getAllStrategies}) => {
 
     const [modalShow, setModalShow] = React.useState(false);
     
@@ -23,6 +23,7 @@ export const StrategyLayout = ({strategyObject, currentUser, getAllStrategies}) 
     const editButtonClick = () => {
         setModalShow(true);
         captureCurrentStrategy();
+        getAllStrategies();
     }
 
     return (<>
@@ -31,7 +32,13 @@ export const StrategyLayout = ({strategyObject, currentUser, getAllStrategies}) 
                   onHide={() => setModalShow(false)}
                 />
         <section className="strategy">
-            <header className="header">{strategyObject.title}<Button id="editButton" variant="secondary" onClick={editButtonClick}>Edit</Button></header>
+            <header className="header">
+                <Link to={`/strategies/${id}`}>{strategyObject.title}</Link>
+                <Button id="editButton" variant="secondary" onClick={editButtonClick}>Edit</Button>
+                <Button id="deleteButton" variant="secondary" onClick={() => {
+                    deleteStrategy(strategyObject.id)
+                    .then(getAllStrategies)}}>Delete</Button>
+                </header>
             <div className="description">
                 Description: {strategyObject.description}
             </div>
