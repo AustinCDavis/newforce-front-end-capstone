@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 
 export const StrategyForm = (props) => {
-      
+
     /*
         TODO: Add the correct default properties to the
         initial state object
@@ -32,10 +32,10 @@ export const StrategyForm = (props) => {
         the user to the ticket list
     */
     const navigate = useNavigate()
-    
+
     const localAuthorizedUser = localStorage.getItem("authorized_user")
     const authorizedUserObject = JSON.parse(localAuthorizedUser)
-    
+
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
         // TODO: Create the object to be saved to the API
@@ -49,29 +49,26 @@ export const StrategyForm = (props) => {
 
         // TODO: Perform the fetch() to POST the object to the API
         return createStrategy(strategyToSendToAPI)
-        .then(() => {
-            update({
-                title: "",
-                description: "",
-                rules: "",
-                risk: 0
+            .then(() => {
+                update({
+                    title: "",
+                    description: "",
+                    rules: "",
+                    risk: 0
+                })
             })
-        })
-        // .then(() => {
-            //     setFeedback("Profile successfully saved")
-            // })
             .then(() => {
                 props.onHide()
             })
-            }
-            
-            
-            return (
-                <>
+    }
+
+
+    return (
+        <>
             <Modal.Header closeButton>
                 <Modal.Title>New Strategy</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+            </Modal.Header>
+            <Modal.Body>
                 <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
                     {feedback}
                 </div>
@@ -150,29 +147,29 @@ export const StrategyForm = (props) => {
                         </div>
                     </fieldset>
                 </form>
-                </Modal.Body>
-              <Modal.Footer>
+            </Modal.Body>
+            <Modal.Footer>
                 <Button variant="secondary" onClick={props.onHide}>
-                  Close
+                    Close
                 </Button>
                 <Button variant="primary" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
-                  Save New Strategy
+                    Save New Strategy
                 </Button>
-              </Modal.Footer>
+            </Modal.Footer>
         </>
     )
 }
 
 
-export const MyVerticallyCenteredModal= (props) => {
+export const MyVerticallyCenteredModal = (props) => {
     return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <StrategyForm onHide={props.onHide} show={props.show} />
-      </Modal>
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <StrategyForm onHide={props.onHide} show={props.show} />
+        </Modal>
     );
-  }
+}

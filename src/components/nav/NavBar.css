@@ -1,25 +1,27 @@
 .modal-backdrop {
-    z-index: 1040;
+  z-index: 1040;
 }
 
 .modal {
-    z-index: 9999;
-    background-color:transparent!important;
+  z-index: 9999;
+  background-color: transparent !important;
 }
+
 @mixin clearfix() {
-    &::after {
-      display: block;
-      clear: both;
-      content: "";
-    }
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
   }
+}
 
 .navbar-toggler {
   margin-left: 11.5%;
   margin-right: 20%;
 }
+
 .dropdown-toggle::after {
-  display: none !important; 
+  display: none !important;
 }
 
 .dropdown:hover {

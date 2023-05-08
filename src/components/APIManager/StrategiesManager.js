@@ -1,6 +1,6 @@
 export const getStrategyById = (id) => {
     return fetch(`http://localhost:8088/strategies/${id}`)
-    .then(response => response.json())
+        .then(response => response.json())
 }
 
 export const createStrategy = (strategyObject) => {
@@ -11,7 +11,7 @@ export const createStrategy = (strategyObject) => {
         },
         body: JSON.stringify(strategyObject)
     })
-    .then(response => response.json())
+        .then(response => response.json())
 }
 
 export const deleteStrategy = (id) => {
@@ -22,17 +22,17 @@ export const deleteStrategy = (id) => {
 
 export const editStrategy = (id, strategyObject) => {
     return fetch(`http://localhost:8088/strategies/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(strategyObject)
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(strategyObject)
 
-        })
+    })
         .then(response => response.json())
 }
 
 export const fetchAllStrategies = () => {
     return fetch('http://localhost:8088/strategies?_embed=journals')
-    .then(response => response.json())
+        .then(response => response.json())
 }

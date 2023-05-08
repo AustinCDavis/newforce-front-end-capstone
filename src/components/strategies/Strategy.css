@@ -4,6 +4,7 @@
     margin: .5rem;
     padding: 0.75rem;
 }
+
 hr {
     margin: .25rem;
 }
@@ -13,14 +14,14 @@ hr {
     display: flex;
 }
 
-#editButton{
+#editButton {
     margin-right: 0;
     margin-left: auto;
     margin-bottom: 2%;
     padding: 0rem 0.5rem;
 }
 
-#deleteButton{
+#deleteButton {
     margin-left: 2%;
     margin-bottom: 2%;
     padding: 0rem 0.5rem;

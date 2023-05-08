@@ -9,40 +9,40 @@ import { MyVerticallyCenteredModal } from "../strategies/StrategyForm";
 
 
 export const JournalContainer = () => {
-  
-  function NewStrategyModal() {
+
+    function NewStrategyModal() {
         const [modalShow, setModalShow] = React.useState(false);
-      
+
         return (
-          <>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-              New Strategy
-            </Button>
-      
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
-          </>
+            <>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    New Strategy
+                </Button>
+
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </>
         );
-      }
+    }
 
-   return (<>
-      <div className="grid">
-          <nav className="box a">
-              <DashboardPageNavBar />
-          </nav>
-          <aside className="box b">
-              <SideBar />
-          </aside>
-          <main className="box c">
-            <section className="box d">
-            </section>
-            <footer className="box e">
+    return (<>
+        <div className="grid">
+            <nav className="box a">
+                <DashboardPageNavBar />
+            </nav>
+            <aside className="box b">
+                <SideBar />
+            </aside>
+            <main className="box c">
+                <section className="box d">
+                </section>
+                <footer className="box e">
 
-            </footer>
-          </main>
-      </div>
-  </>
-  )
+                </footer>
+            </main>
+        </div>
+    </>
+    )
 }

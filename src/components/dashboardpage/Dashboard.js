@@ -15,7 +15,7 @@ export const Dashboard = () => {
             </aside>
             <main className="box c">
                 <section className="box d">
-                <h1>Hello Dashboard</h1>
+                    <h1>Hello Dashboard</h1>
                 </section>
                 <footer className="box e">
                 </footer>

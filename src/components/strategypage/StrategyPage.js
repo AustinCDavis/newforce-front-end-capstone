@@ -9,42 +9,42 @@ import { MyVerticallyCenteredModal } from "../strategies/StrategyForm";
 
 
 export const Strategy = () => {
-  
+
   function NewStrategyModal() {
-        const [modalShow, setModalShow] = React.useState(false);
-      
-        return (
-          <>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-              New Strategy
-            </Button>
-      
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
-          </>
-        );
-      }
+    const [modalShow, setModalShow] = React.useState(false);
 
-   return (<>
-      <div className="grid">
-          <nav className="box a">
-              <DashboardPageNavBar />
-          </nav>
-          <aside className="box b">
-              <SideBar />
-          </aside>
-          <main className="box c">
-            <section className="box d">
-                    <StrategyList />
-                    <NewStrategyModal />
-            </section>
-            <footer className="box e">
+    return (
+      <>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          New Strategy
+        </Button>
 
-            </footer>
-          </main>
-      </div>
+        <MyVerticallyCenteredModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      </>
+    );
+  }
+
+  return (<>
+    <div className="grid">
+      <nav className="box a">
+        <DashboardPageNavBar />
+      </nav>
+      <aside className="box b">
+        <SideBar />
+      </aside>
+      <main className="box c">
+        <section className="box d">
+          <StrategyList />
+          <NewStrategyModal />
+        </section>
+        <footer className="box e">
+
+        </footer>
+      </main>
+    </div>
   </>
   )
 }
