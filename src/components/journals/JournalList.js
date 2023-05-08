@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./Journal.css"
-import { JournalLayout } from "./Journal"
+import { JournalCardLayout } from "./Journal"
 import { fetchAllJournals } from "../APIManager/JournalsManager"
+import Button from 'react-bootstrap/Button';
+import { JournalForm } from "./JournalForm";
 
-export const JournalList = ({ }) => {
+export const JournalList = () => {
     const [journals, setJournals] = useState([])
     const [filteredJournals, setFiltered] = useState([])
 
@@ -18,15 +20,39 @@ export const JournalList = ({ }) => {
             })
     }
 
+    //starting state
     useEffect(
         () => {
-            //needed to allow filtered journals to show on page load
             getAllJournals()
+        }, []
+    )
+
+    useEffect(
+        () => {
             //filtering startegies by id
             const myJournals = journals.filter(journal => journal.userId === authorizedUserObject.id)
             setFiltered(myJournals)
-        }, []
+        }, [journals]
     )
+
+
+    function NewJournalModal() {
+        const [modalShow, setModalShow] = React.useState(false);
+
+        return (
+            <>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    New Journal
+                </Button>
+
+                <JournalForm
+                    getAllJournals={getAllJournals}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </>
+        );
+    }
 
     return <>
         <section className="journalContainer">
@@ -36,7 +62,7 @@ export const JournalList = ({ }) => {
 
                 {
                     filteredJournals.map(
-                        (journal) => <JournalLayout
+                        (journal) => <JournalCardLayout
                             getAllJournals={getAllJournals}
                             currentUser={authorizedUserObject}
                             journalObject={journal}
@@ -45,6 +71,7 @@ export const JournalList = ({ }) => {
                     )
                 }
             </article>
+            <NewJournalModal />
         </section>
     </>
 }

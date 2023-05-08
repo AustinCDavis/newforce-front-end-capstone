@@ -3,14 +3,15 @@ import { editJournal, getJournalById } from "../APIManager/JournalsManager";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const JournalEditForm = (props) => {
-
-    //utilizing local storage to retrieve selected Journal
+const navigate = useNavigate()
+    //utilizing local storage to retrieve selected journal
     const currentJournal = localStorage.getItem("current_journal")
     const currentJournalObject = JSON.parse(currentJournal)
 
-    // TODO: Provide initial state for Journal
+    // TODO: Provide initial state for journal
     const [journal, updateJournal] = useState({
         id: currentJournalObject.id,
         title: currentJournalObject.title,
@@ -20,7 +21,7 @@ export const JournalEditForm = (props) => {
     })
 
 
-    // TODO: Get user Journal info from API and update state
+    // TODO: Get user journal info from API and update state
     useEffect(() => {
         getJournalById(currentJournalObject.id)
             .then((data) => {
@@ -41,6 +42,10 @@ export const JournalEditForm = (props) => {
             .then(() => {
                 props.onHide()
             })
+            .then(() => {
+                console.log("hello")
+                props.getalljournals()
+            })
         window.alert("Journal successfully updated!")
     }
 
@@ -50,7 +55,7 @@ export const JournalEditForm = (props) => {
             <Modal.Title>Update Journal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <form className="journalForm">
+            <form className="startegyForm">
 
                 <fieldset>
                     <div className="form-group">
@@ -146,7 +151,7 @@ export const MyVerticallyCenteredJournalEditModal = (props) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <JournalEditForm onHide={props.onHide} show={props.show} />
+            <JournalEditForm getalljournals={props.getalljournals} onHide={props.onHide} show={props.show} />
         </Modal>
     );
 }

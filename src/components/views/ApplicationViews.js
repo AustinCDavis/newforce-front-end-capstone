@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { Profile } from "../profile/Profile";
 import { Strategy } from "../strategies/StrategyPage";
 import { Dashboard } from "../dashboardpage/Dashboard";
-import { JournalContainer } from "../journals/JournalContainer";
+import { Journal } from "../journals/JournalPage";
 
 
 export const ApplicationViews = () => {
@@ -11,7 +11,7 @@ export const ApplicationViews = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="profile" element={<Profile />} />
       <Route path="strategies" element={<Strategy />} />
-      <Route path="strategies/:strategyId" element={<JournalContainer />} />
+      <Route path="strategies/:strategyId" element={<Journal />} />
     </Routes>
   );
 };

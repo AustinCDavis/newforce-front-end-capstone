@@ -1,38 +1,43 @@
 import { Link, json } from "react-router-dom";
-import { deleteJournal, editJournal } from "../APIManager/JournalsManager";
+import { deleteJournal, editJournal} from "../APIManager/JournalsManager";
 import "./Journal.css"
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MyVerticallyCenteredJournalEditModal } from "./JournalEdit";
 
-export const JournalLayout = ({ journalObject, id, currentUser, getAllJournals }) => {
+export const JournalCardLayout = ({ journalObject, id, currentUser, getAllJournals }) => {
 
+    const navigate = useNavigate();
     const [modalShow, setModalShow] = React.useState(false);
 
     function captureCurrentJournal() {
         localStorage.setItem("current_journal", JSON.stringify({
+          
             id: journalObject.id,
             userId: journalObject.userId,
-            title: journalObject.title,
-            description: journalObject.description,
-            rules: journalObject.rules,
-            risk: +journalObject.risk
+            strategyId: journalObject.strategyId,
+            ticker: journalObject.ticker,
+            purchasePrice: +journalObject.purchasePrice,
+            purchaseDate: journalObject.purchaseDate,
+            targetPrice: +journalObject.targetPrice,
+            notes: journalObject.notes
         }))
     }
 
     const editButtonClick = () => {
         setModalShow(true);
         captureCurrentJournal();
-        getAllJournals();
     }
 
     const deleteButtonClick = () => {
-        deleteJournal(journalObject.id);
-        getAllJournals();
+        deleteJournal(journalObject.id)
+            .then(getAllJournals)
     }
 
     return (<>
         <MyVerticallyCenteredJournalEditModal
+            getalljournals={getAllJournals}
             show={modalShow}
             onHide={() => setModalShow(false)}
         />

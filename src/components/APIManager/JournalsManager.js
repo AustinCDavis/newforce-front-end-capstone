@@ -33,6 +33,6 @@ export const editJournal = (id, journalObject) => {
 }
 
 export const fetchAllJournals = () => {
-    return fetch('http://localhost:8088/journals?_embed=journals')
+    return fetch('http://localhost:8088/journals')
         .then(response => response.json())
 }
