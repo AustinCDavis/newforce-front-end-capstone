@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { Profile } from "../profile/Profile";
-import { Strategy } from "../strategypage/StrategyPage";
+import { Strategy } from "../strategies/StrategyPage";
 import { Dashboard } from "../dashboardpage/Dashboard";
 import { JournalContainer } from "../journals/JournalContainer";
 

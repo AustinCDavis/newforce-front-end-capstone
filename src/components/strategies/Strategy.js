@@ -4,9 +4,11 @@ import "./Strategy.css"
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { MyVerticallyCenteredStrategyEditModal } from "./StrategyEdit";
+import { useNavigate } from "react-router-dom";
 
-export const StrategyLayout = ({ strategyObject, id, currentUser, getAllStrategies }) => {
+export const StrategyCardLayout = ({ strategyObject, id, currentUser, getAllStrategies }) => {
 
+    const navigate = useNavigate();
     const [modalShow, setModalShow] = React.useState(false);
 
     function captureCurrentStrategy() {
@@ -23,16 +25,16 @@ export const StrategyLayout = ({ strategyObject, id, currentUser, getAllStrategi
     const editButtonClick = () => {
         setModalShow(true);
         captureCurrentStrategy();
-        getAllStrategies();
     }
 
     const deleteButtonClick = () => {
-        deleteStrategy(strategyObject.id);
-        getAllStrategies();
+        deleteStrategy(strategyObject.id)
+            .then(getAllStrategies)
     }
 
     return (<>
         <MyVerticallyCenteredStrategyEditModal
+            getallstrategies={getAllStrategies}
             show={modalShow}
             onHide={() => setModalShow(false)}
         />

@@ -33,6 +33,6 @@ export const editStrategy = (id, strategyObject) => {
 }
 
 export const fetchAllStrategies = () => {
-    return fetch('http://localhost:8088/strategies?_embed=journals')
+    return fetch('http://localhost:8088/strategies')
         .then(response => response.json())
 }

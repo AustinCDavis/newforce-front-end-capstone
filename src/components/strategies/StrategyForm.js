@@ -37,7 +37,7 @@ export const StrategyForm = (props) => {
     const authorizedUserObject = JSON.parse(localAuthorizedUser)
 
     const handleSaveButtonClick = (event) => {
-        event.preventDefault()
+        event?.preventDefault()
         // TODO: Create the object to be saved to the API
         const strategyToSendToAPI = {
             userId: authorizedUserObject.id,
@@ -58,13 +58,23 @@ export const StrategyForm = (props) => {
                 })
             })
             .then(() => {
-                props.onHide()
+                props.onHide();
             })
     }
 
+    const saveButtonClick = () => {
+        handleSaveButtonClick();
+        props.getAllStrategies();
+    }
 
     return (
         <>
+            <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
             <Modal.Header closeButton>
                 <Modal.Title>New Strategy</Modal.Title>
             </Modal.Header>
@@ -152,24 +162,11 @@ export const StrategyForm = (props) => {
                 <Button variant="secondary" onClick={props.onHide}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}>
+                <Button variant="primary" onClick={saveButtonClick}>
                     Save New Strategy
                 </Button>
             </Modal.Footer>
+            </Modal>
         </>
     )
-}
-
-
-export const MyVerticallyCenteredModal = (props) => {
-    return (
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <StrategyForm onHide={props.onHide} show={props.show} />
-        </Modal>
-    );
 }

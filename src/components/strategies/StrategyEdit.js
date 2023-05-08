@@ -3,9 +3,10 @@ import { editStrategy, getStrategyById } from "../APIManager/StrategiesManager";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const StrategyEditForm = (props) => {
-
+const navigate = useNavigate()
     //utilizing local storage to retrieve selected strategy
     const currentStrategy = localStorage.getItem("current_strategy")
     const currentStrategyObject = JSON.parse(currentStrategy)
@@ -41,7 +42,11 @@ export const StrategyEditForm = (props) => {
             .then(() => {
                 props.onHide()
             })
-        window.alert("Startegy successfully updated!")
+            .then(() => {
+                console.log("hello")
+                props.getallstrategies()
+            })
+        window.alert("Strategy successfully updated!")
     }
 
     return (<>
@@ -146,7 +151,7 @@ export const MyVerticallyCenteredStrategyEditModal = (props) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <StrategyEditForm onHide={props.onHide} show={props.show} />
+            <StrategyEditForm getallstrategies={props.getallstrategies} onHide={props.onHide} show={props.show} />
         </Modal>
     );
 }

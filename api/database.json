@@ -21,16 +21,8 @@
       "title": "CAHOLD",
       "description": "Close above the high of the low day",
       "rules": "Close above the high of the low day",
-      "risk": 6,
+      "risk": "3",
       "id": 5
-    },
-    {
-      "userId": 1,
-      "title": "hello",
-      "description": "h",
-      "rules": "h",
-      "risk": "2",
-      "id": 7
     },
     {
       "userId": 2,
@@ -39,6 +31,30 @@
       "rules": "ad",
       "risk": "4",
       "id": 8
+    },
+    {
+      "userId": 2,
+      "title": "idk",
+      "description": "sssssss",
+      "rules": "ssssssss",
+      "risk": 1,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "title": "a",
+      "description": "aaaaaaaaaaaa",
+      "rules": "aaaaaaaaaaaaaaaaaa",
+      "risk": 8,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "title": "b",
+      "description": "bbbbbbbbbb",
+      "rules": "bbbbbbbbbbbbbbbbbbbbbb",
+      "risk": 8,
+      "id": 12
     }
   ],
   "journals": [],

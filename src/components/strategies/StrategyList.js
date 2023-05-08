@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./Strategy.css"
-import { StrategyLayout } from "./Strategy"
+import { StrategyCardLayout } from "./Strategy"
 import { fetchAllStrategies } from "../APIManager/StrategiesManager"
+import Button from 'react-bootstrap/Button';
+import { StrategyForm } from "../strategies/StrategyForm";
 
-export const StrategyList = ({ }) => {
+export const StrategyList = () => {
     const [strategies, setStrategies] = useState([])
     const [filteredStrategies, setFiltered] = useState([])
 
@@ -18,17 +20,39 @@ export const StrategyList = ({ }) => {
             })
     }
 
+    //starting state
     useEffect(
         () => {
             getAllStrategies()
+        }, []
+    )
+
+    useEffect(
+        () => {
+            //filtering startegies by id
             const myStrategies = strategies.filter(strategy => strategy.userId === authorizedUserObject.id)
             setFiltered(myStrategies)
         }, [strategies]
     )
 
 
+    function NewStrategyModal() {
+        const [modalShow, setModalShow] = React.useState(false);
 
+        return (
+            <>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                    New Strategy
+                </Button>
 
+                <StrategyForm
+                    getAllStrategies={getAllStrategies}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </>
+        );
+    }
 
     return <>
         <section className="strategyContainer">
@@ -38,7 +62,7 @@ export const StrategyList = ({ }) => {
 
                 {
                     filteredStrategies.map(
-                        (strategy) => <StrategyLayout
+                        (strategy) => <StrategyCardLayout
                             getAllStrategies={getAllStrategies}
                             currentUser={authorizedUserObject}
                             strategyObject={strategy}
@@ -47,6 +71,7 @@ export const StrategyList = ({ }) => {
                     )
                 }
             </article>
+            <NewStrategyModal />
         </section>
     </>
 }

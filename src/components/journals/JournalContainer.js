@@ -1,10 +1,9 @@
 
 import { DashboardPageNavBar } from "../nav/NavBar"
 import { SideBar } from "../nav/SideBar";
-import { StrategyList } from "../strategies/StrategyList";
+import { JournalList } from "./JournalList"; 
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
-import { MyVerticallyCenteredModal } from "../strategies/StrategyForm";
 
 
 
@@ -19,10 +18,10 @@ export const JournalContainer = () => {
                     New Strategy
                 </Button>
 
-                <MyVerticallyCenteredModal
+                {/* <MyVerticallyCenteredModal
                     show={modalShow}
                     onHide={() => setModalShow(false)}
-                />
+                /> */}
             </>
         );
     }
