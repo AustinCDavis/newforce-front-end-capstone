@@ -57,19 +57,84 @@
       "id": 12
     }
   ],
-  "journals": [
+  "journalEntries": [
+    {
+      "userId": 1,
+      "strategyId": 5,
+      "ticker": "AAPLE",
+      "purchasePrice": 13,
+      "purchaseDate": "2023-05-09",
+      "targetPrice": 20,
+      "notes": "hjhhhhh",
+      "initialQuantity": 11,
+      "currentQuantity": 11,
+      "id": 1
+    },
     {
       "userId": 1,
       "strategyId": 11,
-      "ticker": "aapl",
+      "ticker": "AMZN",
+      "purchasePrice": 12,
+      "purchaseDate": "2023-05-10",
+      "targetPrice": 30,
+      "notes": "hhhhhhhhhhhhhhhhhhh",
+      "initialQuantity": 24,
+      "currentQuantity": 24,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "strategyId": 12,
+      "ticker": "SPI",
       "purchasePrice": 8,
-      "purchaseDate": "2023-05-26",
-      "targetPrice": 11,
-      "notes": "jjjjjjjjjjj",
-      "id": 1
+      "purchaseDate": "2023-05-10",
+      "targetPrice": 12,
+      "notes": "jjjjjjjjjjjjjjj",
+      "initialQuantity": 10,
+      "currentQuantity": 10,
+      "id": 3
     }
   ],
-  "strategyJournals": [],
+  "journalExits": [
+    {
+      "userId": 1,
+      "strategyId": 12,
+      "ticker": "hg",
+      "soldDate": "2023-05-31",
+      "soldPrice": 17,
+      "results": "hhhhhhhhhhhhhhhhhhh",
+      "soldQuantity": 9,
+      "currentQuantity": 12,
+      "targetPriceHit": "",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "strategyId": 5,
+      "entryId": 1,
+      "ticker": "AAPLE",
+      "soldDate": "2023-05-10",
+      "soldPrice": 11,
+      "results": "hhhhhhhhhhhh",
+      "soldQuantity": 10,
+      "currentQuantity": null,
+      "targetPriceHit": "",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "strategyId": 5,
+      "entryId": 1,
+      "ticker": "AAPLE",
+      "soldDate": "2023-05-10",
+      "soldPrice": 10,
+      "results": "ddddddd",
+      "soldQuantity": 3,
+      "currentQuantity": null,
+      "targetPriceHit": "",
+      "id": 3
+    }
+  ],
   "messages": [],
   "events": [],
   "images": [],

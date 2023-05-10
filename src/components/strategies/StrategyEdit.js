@@ -43,7 +43,6 @@ const navigate = useNavigate()
                 props.onHide()
             })
             .then(() => {
-                console.log("hello")
                 props.getallstrategies()
             })
         window.alert("Strategy successfully updated!")

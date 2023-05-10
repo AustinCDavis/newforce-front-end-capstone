@@ -64,7 +64,7 @@ export const StrategyForm = (props) => {
 
     const saveButtonClick = () => {
         handleSaveButtonClick();
-        props.getAllStrategies();
+        props.getallstrategies();
     }
 
     return (

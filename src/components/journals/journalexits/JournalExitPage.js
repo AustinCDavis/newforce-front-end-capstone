@@ -1,12 +1,12 @@
-import "./Journal.css";
-import { DashboardPageNavBar } from "../nav/NavBar"
-import { SideBar } from "../nav/SideBar";
-import { JournalList } from "./JournalList";
+import "../Journal.css";
+import { DashboardPageNavBar } from "../../nav/NavBar"
+import { SideBar } from "../../nav/SideBar";
+import { JournalExitList } from "./JournalExitList";
 import React from 'react';
 
 
 
-export const Journal = () => {
+export const JournalExitPage = () => {
 
   return (<>
     <div className="grid">
@@ -18,7 +18,7 @@ export const Journal = () => {
       </aside>
       <main className="box c">
         <section className="box d">
-          <JournalList />
+          <JournalExitList />
         </section>
         <footer className="box e">
 

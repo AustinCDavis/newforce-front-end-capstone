@@ -68,17 +68,17 @@ export const SideBar = () => {
                         <Dropdown>
                             <Dropdown.Toggle variant="">
                                 <OverlayTrigger placement="right" overlay={
-                                    <Tooltip id="tooltip-right">Profile</Tooltip>}>
+                                    <Tooltip id="tooltip-right">Quick Add</Tooltip>}>
 
                                     <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i className="bi-person-circle h2 fs-1 text-profile"></i>
+                                        <i className="bi-plus-square h2 fs-1 text-profile"></i>
                                     </a>
-                                </OverlayTrigger>                  </Dropdown.Toggle>
+                                </OverlayTrigger></Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                <Dropdown.Item href="/Profile">Profile</Dropdown.Item>
-                                <Dropdown.Item href="/Profile">Nope</Dropdown.Item>
+                                <Dropdown.Item href="#/action-1">New Strategy</Dropdown.Item>
+                                <Dropdown.Item href="/Profile">New Stock Entry</Dropdown.Item>
+                                <Dropdown.Item href="/Profile">New Stock Exit</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>

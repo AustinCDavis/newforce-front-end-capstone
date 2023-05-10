@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { editJournal, getJournalById } from "../APIManager/JournalsManager";
+import { editJournalExit, getJournalExitById } from "../../APIManager/JournalsManager";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const JournalEditForm = (props) => {
-const navigate = useNavigate()
+export const JournalExitEditForm = (props) => {
+    const navigate = useNavigate()
     //utilizing local storage to retrieve selected journal
     const currentJournal = localStorage.getItem("current_journal")
     const currentJournalObject = JSON.parse(currentJournal)
@@ -14,16 +14,20 @@ const navigate = useNavigate()
     // TODO: Provide initial state for journal
     const [journal, updateJournal] = useState({
         id: currentJournalObject.id,
-        title: currentJournalObject.title,
-        description: currentJournalObject.description,
-        rules: currentJournalObject.rules,
-        risk: +currentJournalObject.risk
+        userId: currentJournalObject.userId,
+        strategyId: currentJournalObject.strategyId,
+        ticker: currentJournalObject.ticker,
+        purchasePrice: +currentJournalObject.purchasePrice,
+        purchaseDate: currentJournalObject.purchaseDate,
+        targetPrice: +currentJournalObject.targetPrice,
+        notes: currentJournalObject.notes,
+        initialQuantity: currentJournalObject.initialQuantity
     })
 
 
     // TODO: Get user journal info from API and update state
     useEffect(() => {
-        getJournalById(currentJournalObject.id)
+        getJournalExitById(currentJournalObject.id)
             .then((data) => {
                 const journalObject = data
                 updateJournal(journalObject)
@@ -38,38 +42,41 @@ const navigate = useNavigate()
             TODO: Perform the PUT fetch() call here to update the profile.
             Navigate user to home page when done.
             */
-        editJournal(journal?.id, journal)
+        editJournalExit(journal?.id, journal)
             .then(() => {
                 props.onHide()
             })
             .then(() => {
-                console.log("hello")
-                props.getalljournals()
+                props.getAllJournalExits()
             })
         window.alert("Journal successfully updated!")
     }
 
     return (<>
-
+    <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
         <Modal.Header closeButton>
             <Modal.Title>Update Journal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <form className="startegyForm">
+            <form className="journalForm">
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="title">Title:</label>
+                        <label htmlFor="tickier">Ticker:</label>
                         <input
                             required autoFocus
                             type="text"
                             className="form-control"
-                            value={journal?.title}
+                            value={journal.ticker}
                             onChange={
                                 (evt) => {
                                     // TODO: Update specialty property
                                     const copy = { ...journal }
-                                    copy.title = evt.target.value
+                                    copy.ticker = evt.target.value
                                     updateJournal(copy)
                                 }
                             } />
@@ -77,7 +84,45 @@ const navigate = useNavigate()
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="description">Description:</label>
+                        <label htmlFor="purchasePrice">Purchase Price:</label>
+                        <input
+                            required autoFocus
+                            type="number"
+                            min="0"
+                            step="any"
+                            className="form-control"
+                            value={journal.purchasePrice}
+                            onChange={
+                                (evt) => {
+                                    // TODO: Update specialty property
+                                    const copy = { ...journal }
+                                    copy.purchasePrice = evt.target.value
+                                    updateJournal(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="purchaseDate">Purchase Date:</label>
+                        <input
+                            required autoFocus
+                            type="date"
+                            className="form-control"
+                            value={journal.purchaseDate}
+                            onChange={
+                                (evt) => {
+                                    // TODO: Update specialty property
+                                    const copy = { ...journal }
+                                    copy.purchaseDate = evt.target.value
+                                    updateJournal(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="notes">Notes:</label>
                         <textarea
                             required autoFocus
                             type="text"
@@ -85,11 +130,11 @@ const navigate = useNavigate()
                                 height: "10rem"
                             }}
                             className="form-control"
-                            value={journal?.description}
+                            value={journal.notes}
                             onChange={
                                 (event) => {
                                     const copy = { ...journal }
-                                    copy.description = event.target.value
+                                    copy.notes = event.target.value
                                     updateJournal(copy)
                                 }
                             }></textarea>
@@ -97,33 +142,27 @@ const navigate = useNavigate()
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="rules">Rules:</label>
-                        <textarea
-                            required autoFocus
-                            type="text"
-                            style={{
-                                height: "10rem"
-                            }}
-                            className="form-control"
-                            value={journal?.rules}
-                            onChange={
-                                (event) => {
-                                    const copy = { ...journal }
-                                    copy.rules = event.target.value
-                                    updateJournal(copy)
-                                }
-                            }></textarea>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="risk">Risk Percentage:</label>
+                        <label htmlFor="targetPrice">Target Price:</label>
                         <input type="number"
-                            value={journal?.risk}
+                            value={journal.targetPrice}
                             onChange={
                                 (event) => {
                                     const copy = { ...journal }
-                                    copy.risk = event.target.value
+                                    copy.targetPrice = event.target.value
+                                    updateJournal(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="soldPrice">Sold Price:</label>
+                        <input type="number"
+                            value={journal.soldPrice}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...journal }
+                                    copy.soldPrice = event.target.value
                                     updateJournal(copy)
                                 }
                             } />
@@ -139,19 +178,7 @@ const navigate = useNavigate()
                 Update Journal
             </Button>
         </Modal.Footer>
+        </Modal>
     </>
     )
-}
-
-export const MyVerticallyCenteredJournalEditModal = (props) => {
-    return (
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <JournalEditForm getalljournals={props.getalljournals} onHide={props.onHide} show={props.show} />
-        </Modal>
-    );
 }

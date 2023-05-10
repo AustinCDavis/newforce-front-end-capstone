@@ -46,7 +46,7 @@ export const StrategyList = () => {
                 </Button>
 
                 <StrategyForm
-                    getAllStrategies={getAllStrategies}
+                    getallstrategies={getAllStrategies}
                     show={modalShow}
                     onHide={() => setModalShow(false)}
                 />
@@ -67,6 +67,7 @@ export const StrategyList = () => {
                             currentUser={authorizedUserObject}
                             strategyObject={strategy}
                             id={strategy.id}
+                            title={strategy.title}
                             key={`strategy--${strategy.id}`} />
                     )
                 }

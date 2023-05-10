@@ -1,3 +1,7 @@
+.a {
+    height: 15%;
+}
+
 .strategy {
     border: 1.5px dashed black;
     border-radius: 1rem;
@@ -27,7 +31,58 @@ hr {
     padding: 0rem 0.5rem;
 }
 
-.d {
-    margin: .5rem;
-    padding: .5rem;
+
+.f {
+    display: flex;
+    margin-top: 5%;
+    border: 1px solid black;
+}
+
+.c {
+    margin-top: 5%;
+    margin-left: 7%;
+    height: 90%;
+}
+
+.stats {
+    max-width: 30%;
+}
+
+.container {
+    width: 100%;
+}
+
+
+.cardBody {
+    border: 1.5px dashed black;
+    border-radius: 0.75rem;
+    margin: .25rem;
+    padding: 0.75rem;
+    display: flex;
+    
+}
+
+.graph {
+    margin: 0.25rem;
+    width: 70%;
+}
+
+.graphBody {
+    border: 1.5px dashed black;
+    border-radius: 0.75rem;
+    margin-right: .5rem;
+    padding: 0.75rem;
+    
+}
+
+
+.number {
+    margin-right: 3%;
+    margin-left: auto;
+    align-self: center;
+}
+
+.number h3 {
+    font-weight: bold;
+    /* color: white; */
 }

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { createJournal } from "../APIManager/JournalsManager"
+import { createJournalEntry } from "../../APIManager/JournalsManager"
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 
-export const JournalForm = (props) => {
+export const JournalEntryForm = (props) => {
 
     /*
         TODO: Add the correct default properties to the
@@ -17,7 +17,8 @@ export const JournalForm = (props) => {
             purchasePrice: 0,
             purchaseDate: "",
             targetPrice: 0,
-            notes: ""
+            notes: "",
+            quantity: 0
     })
 
     const [feedback, setFeedback] = useState("")
@@ -50,18 +51,22 @@ export const JournalForm = (props) => {
             purchasePrice: +journal.purchasePrice,
             purchaseDate: journal.purchaseDate,
             targetPrice: +journal.targetPrice,
-            notes: journal.notes
+            notes: journal.notes,
+            initialQuantity: +journal.initialQuantity,
+            currentQuantity: +journal.initialQuantity
+
         }
 
         // TODO: Perform the fetch() to POST the object to the API
-        return createJournal(journalToSendToAPI)
+        return createJournalEntry(journalToSendToAPI)
             .then(() => {
                 update({
                 ticker: "",
                 purchasePrice: 0,
                 purchaseDate: "",
                 targetPrice: 0,
-                notes: ""
+                notes: "",
+                purchaseQuantity: 0
                 })
             })
             .then(() => {
@@ -71,7 +76,7 @@ export const JournalForm = (props) => {
 
     const saveButtonClick = () => {
         handleSaveButtonClick();
-        props.getAllJournals();
+        props.getAllJournalEntries();
     }
 
     return (
@@ -83,7 +88,7 @@ export const JournalForm = (props) => {
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title>New Journal</Modal.Title>
+                <Modal.Title>New Journal Entry</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
@@ -134,7 +139,7 @@ export const JournalForm = (props) => {
                             <label htmlFor="purchaseDate">Purchase Date:</label>
                             <input
                                 required autoFocus
-                                type="text"
+                                type="date"
                                 className="form-control"
                                 value={journal.purchaseDate}
                                 onChange={
@@ -181,6 +186,20 @@ export const JournalForm = (props) => {
                                 } />
                         </div>
                     </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="quantity">Quantity:</label>
+                            <input type="number"
+                                value={journal.purchaseQuantity}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...journal }
+                                        copy.purchaseQuantity = event.target.value
+                                        update(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
                 </form>
             </Modal.Body>
             <Modal.Footer>
@@ -188,7 +207,7 @@ export const JournalForm = (props) => {
                     Close
                 </Button>
                 <Button variant="primary" onClick={saveButtonClick}>
-                    Save New Journal
+                    Save Entry Journal
                 </Button>
             </Modal.Footer>
             </Modal>

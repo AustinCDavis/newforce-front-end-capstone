@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { MyVerticallyCenteredStrategyEditModal } from "./StrategyEdit";
 import { useNavigate } from "react-router-dom";
 
-export const StrategyCardLayout = ({ strategyObject, id, currentUser, getAllStrategies }) => {
+export const StrategyCardLayout = ({ strategyObject, id, title, currentUser, getAllStrategies }) => {
 
     const navigate = useNavigate();
     const [modalShow, setModalShow] = React.useState(false);
@@ -40,7 +40,7 @@ export const StrategyCardLayout = ({ strategyObject, id, currentUser, getAllStra
         />
         <section className="strategy">
             <header className="header">
-                <Link to={`/strategies/${id}`}>{strategyObject.title}</Link>
+                <Link to={`/strategies/${id}`} onClick={captureCurrentStrategy}>{strategyObject.title}</Link>
                 <Button id="editButton" variant="secondary" onClick={editButtonClick}>Edit</Button>
                 <Button id="deleteButton" variant="secondary" onClick={deleteButtonClick}>Delete</Button>
             </header>
