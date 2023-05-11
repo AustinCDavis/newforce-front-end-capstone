@@ -43,7 +43,7 @@ export const JournalExitCardLayout = ({ journalObject, id, currentUser, getAllJo
         return (
             <>
                { 
-               journalObject.currentQuantity >= 0 ?
+               journalObject?.currentQuantity > 0 ?
                <>
                <Button className="soldButton" variant="primary" onClick={() => setModalShow(true)}>
                     Sold Stock

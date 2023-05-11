@@ -52,7 +52,7 @@ export const Strategy = () => {
               <section className="graph">
                 <div className="graphBody">
                   <div className="text">
-                    <h5>Total invested</h5>
+                    <h5>Graph ?</h5>
                   </div>
                 </div>
               </section>

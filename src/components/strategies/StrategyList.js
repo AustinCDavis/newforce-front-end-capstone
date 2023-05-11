@@ -41,7 +41,7 @@ export const StrategyList = () => {
 
         return (
             <>
-                <Button variant="primary" onClick={() => setModalShow(true)}>
+                <Button className="newstrategybutton" variant="secondary" onClick={() => setModalShow(true)}>
                     New Strategy
                 </Button>
 
@@ -56,8 +56,10 @@ export const StrategyList = () => {
 
     return <>
         <section className="strategyContainer">
-
-            <h2>List of Strategies</h2>
+            <header className="stratagiesheader">
+                <h6>List of Strategies</h6>
+                <NewStrategyModal />
+            </header>
             <article className="Strategies">
 
                 {
@@ -72,7 +74,6 @@ export const StrategyList = () => {
                     )
                 }
             </article>
-            <NewStrategyModal />
         </section>
     </>
 }

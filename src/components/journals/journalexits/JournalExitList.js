@@ -30,14 +30,16 @@ export const JournalExitList = () => {
         }, []
     )
 
+    console.log(currentJournalObject)
+    console.log(journals[0])
     useEffect(
         () => {
             //filtering startegies by id
             const myJournals = journals.filter(journal => journal.userId === authorizedUserObject.id && journal.entryId === currentJournalObject.id)
             setFiltered(myJournals)
         }, [journals]
-    )
-
+        )
+        
 
     function NewJournalExitModal() {
         const [modalShow, setModalShow] = React.useState(false);

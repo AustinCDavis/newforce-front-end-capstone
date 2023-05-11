@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 export const DashboardPageNavBar = () => {
 
+  const localAuthorizedUser = localStorage.getItem("authorized_user")
+  const authorizedUserObject = JSON.parse(localAuthorizedUser)
+
   const navigate = useNavigate()
 
   return (
@@ -13,12 +16,14 @@ export const DashboardPageNavBar = () => {
       <div className="p-3 m-0 border-0 bd-example">
         <nav className="navbar navbar-dark bg-dark fixed-top">
           <a className="navbar-brand justify-content-start">
-            <i>NextTrade</i>
+            <i className="brand">NextTrade</i>
           </a>
-
           <Dropdown>
+          <span className="user">
+            {authorizedUserObject.fullName}
+          </span>
             <Dropdown.Toggle variant="dark">
-              <img src="https://img.icons8.com/ios-filled/50/FFFFFF/user-male-circle.png" alt="Logo" width="50" height="50" className="d-inline-block align-text-top" />
+              <img src="https://img.icons8.com/ios-filled/50/FFFFFF/user-male-circle.png" alt="Logo" width="45" height="45" className="d-inline-block align-text-top" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

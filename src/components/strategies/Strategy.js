@@ -40,7 +40,7 @@ export const StrategyCardLayout = ({ strategyObject, id, title, currentUser, get
         />
         <section className="strategy">
             <header className="header">
-                <Link to={`/strategies/${id}`} onClick={captureCurrentStrategy}>{strategyObject.title}</Link>
+                <Link to={`/strategies/${title}${id}`} className="title" onClick={captureCurrentStrategy}>{strategyObject.title}</Link>
                 <Button id="editButton" variant="secondary" onClick={editButtonClick}>Edit</Button>
                 <Button id="deleteButton" variant="secondary" onClick={deleteButtonClick}>Delete</Button>
             </header>

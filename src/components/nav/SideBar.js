@@ -70,7 +70,7 @@ export const SideBar = () => {
                                 <OverlayTrigger placement="right" overlay={
                                     <Tooltip id="tooltip-right">Quick Add</Tooltip>}>
 
-                                    <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="#" className="d-flex align-items-center justify-content-center p-1 link-dark text-decoration-none" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i className="bi-plus-square h2 fs-1 text-profile"></i>
                                     </a>
                                 </OverlayTrigger></Dropdown.Toggle>

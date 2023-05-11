@@ -53,117 +53,131 @@ export const JournalEntryEditForm = (props) => {
     }
 
     return (<>
-    <Modal
+        <Modal
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered>
-        <Modal.Header closeButton>
-            <Modal.Title>Update Journal</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <form className="journalForm">
+            <Modal.Header closeButton>
+                <Modal.Title>Update Journal</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <form className="journalForm">
 
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="tickier">Ticker:</label>
-                        <input
-                            required autoFocus
-                            type="text"
-                            className="form-control"
-                            value={journal.ticker}
-                            onChange={
-                                (evt) => {
-                                    // TODO: Update specialty property
-                                    const copy = { ...journal }
-                                    copy.ticker = evt.target.value
-                                    updateJournal(copy)
-                                }
-                            } />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="purchasePrice">Purchase Price:</label>
-                        <input
-                            required autoFocus
-                            type="number"
-                            min="0"
-                            step="any"
-                            className="form-control"
-                            value={journal.purchasePrice}
-                            onChange={
-                                (evt) => {
-                                    // TODO: Update specialty property
-                                    const copy = { ...journal }
-                                    copy.purchasePrice = evt.target.value
-                                    updateJournal(copy)
-                                }
-                            } />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="purchaseDate">Purchase Date:</label>
-                        <input
-                            required autoFocus
-                            type="date"
-                            className="form-control"
-                            value={journal.purchaseDate}
-                            onChange={
-                                (evt) => {
-                                    // TODO: Update specialty property
-                                    const copy = { ...journal }
-                                    copy.purchaseDate = evt.target.value
-                                    updateJournal(copy)
-                                }
-                            } />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="notes">Notes:</label>
-                        <textarea
-                            required autoFocus
-                            type="text"
-                            style={{
-                                height: "10rem"
-                            }}
-                            className="form-control"
-                            value={journal.notes}
-                            onChange={
-                                (event) => {
-                                    const copy = { ...journal }
-                                    copy.notes = event.target.value
-                                    updateJournal(copy)
-                                }
-                            }></textarea>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="targetPrice">Target Price:</label>
-                        <input type="number"
-                            value={journal.targetPrice}
-                            onChange={
-                                (event) => {
-                                    const copy = { ...journal }
-                                    copy.targetPrice = event.target.value
-                                    updateJournal(copy)
-                                }
-                            } />
-                    </div>
-                </fieldset>
-            </form>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={props.onHide}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={((clickEvent) => handleSaveButtonClick(clickEvent))}>
-                Update Journal
-            </Button>
-        </Modal.Footer>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="tickier">Ticker:</label>
+                            <input
+                                required autoFocus
+                                type="text"
+                                className="form-control"
+                                value={journal.ticker}
+                                onChange={
+                                    (evt) => {
+                                        // TODO: Update specialty property
+                                        const copy = { ...journal }
+                                        copy.ticker = evt.target.value
+                                        updateJournal(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="purchasePrice">Purchase Price:</label>
+                            <input
+                                required autoFocus
+                                type="number"
+                                min="0"
+                                step="any"
+                                className="form-control"
+                                value={journal.purchasePrice}
+                                onChange={
+                                    (evt) => {
+                                        // TODO: Update specialty property
+                                        const copy = { ...journal }
+                                        copy.purchasePrice = evt.target.value
+                                        updateJournal(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="purchaseDate">Purchase Date:</label>
+                            <input
+                                required autoFocus
+                                type="date"
+                                className="form-control"
+                                value={journal.purchaseDate}
+                                onChange={
+                                    (evt) => {
+                                        // TODO: Update specialty property
+                                        const copy = { ...journal }
+                                        copy.purchaseDate = evt.target.value
+                                        updateJournal(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="notes">Notes:</label>
+                            <textarea
+                                required autoFocus
+                                type="text"
+                                style={{
+                                    height: "10rem"
+                                }}
+                                className="form-control"
+                                value={journal.notes}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...journal }
+                                        copy.notes = event.target.value
+                                        updateJournal(copy)
+                                    }
+                                }></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="targetPrice">Target Price:</label>
+                            <input type="number"
+                                value={journal.targetPrice}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...journal }
+                                        copy.targetPrice = event.target.value
+                                        updateJournal(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="quantity">Quantity:</label>
+                            <input type="number"
+                                value={journal.purchaseQuantity}
+                                onChange={
+                                    (event) => {
+                                        const copy = { ...journal }
+                                        copy.purchaseQuantity = event.target.value
+                                        updateJournal(copy)
+                                    }
+                                } />
+                        </div>
+                    </fieldset>
+                </form>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={props.onHide}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={((clickEvent) => handleSaveButtonClick(clickEvent))}>
+                    Update Journal
+                </Button>
+            </Modal.Footer>
         </Modal>
     </>
     )

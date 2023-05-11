@@ -70,6 +70,7 @@ export const JournalEntryList = () => {
                             getAllJournalEntries={getAllJournalEntries}
                             currentUser={authorizedUserObject}
                             journalObject={journal}
+                            ticker={journal.ticker}
                             id={journal.id}
                             key={`journal--${journal.id}`} />
                     )

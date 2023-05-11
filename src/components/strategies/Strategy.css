@@ -1,6 +1,7 @@
-.a {
-    height: 15%;
+.title {
+    margin: 0.25%;
 }
+
 
 .strategy {
     border: 1.5px dashed black;
@@ -10,7 +11,7 @@
 }
 
 hr {
-    margin: .25rem;
+    margin: .2rem;
 }
 
 .header {
@@ -21,31 +22,46 @@ hr {
 #editButton {
     margin-right: 0;
     margin-left: auto;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     padding: 0rem 0.5rem;
 }
 
 #deleteButton {
     margin-left: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     padding: 0rem 0.5rem;
 }
 
 
 .f {
     display: flex;
-    margin-top: 5%;
+    margin-top: -3%;
+    margin-left: -1.5%;
     border: 1px solid black;
+    width: 105%;
 }
 
 .c {
-    margin-top: 5%;
-    margin-left: 7%;
+    margin-top: 2%;
+    margin-left: 1%;
     height: 90%;
 }
 
+.strategyContainer {
+margin-top: 2.5%;
+width: 105%;
+margin-left: -1.25%;
+}
+
+.Strategies {
+    border: 1px solid gray;
+    border-radius: 0.6rem;
+    overflow-y: scroll;
+    height: 15rem;
+}
+
 .stats {
-    max-width: 30%;
+    max-width: 36%;
 }
 
 .container {
@@ -63,8 +79,9 @@ hr {
 }
 
 .graph {
-    margin: 0.25rem;
-    width: 70%;
+    margin-top: 0.25rem;
+    margin-left: 0.25rem;
+    width: 67%;
 }
 
 .graphBody {
@@ -86,3 +103,42 @@ hr {
     font-weight: bold;
     /* color: white; */
 }
+
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(135, 131, 131); 
+    border-radius: 0.75rem;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4a4848; 
+  }
+
+  .stratagiesheader {
+    display: flex;
+   flex-wrap: wrap;
+  }
+
+  .newstrategybutton {
+    margin-left: auto;
+    margin-bottom: 1%;
+    margin-top: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .stratagiesheader h6 {
+    font-size: 1.2rem;
+    font-weight: 650;
+    padding-top: 0.4rem;
+  }

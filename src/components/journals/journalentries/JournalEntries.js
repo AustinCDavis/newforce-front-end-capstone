@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { JournalEntryEditForm } from "./JournalEntryEdit";
 import { JournalExitForm } from "../journalexits/JournalExitForm";
 
-export const JournalEntryCardLayout = ({ journalObject, id, currentUser, getAllJournalEntries }) => {
+export const JournalEntryCardLayout = ({ journalObject, id, currentUser, ticker, getAllJournalEntries }) => {
 
     const navigate = useNavigate();
     const [modalShow, setModalShow] = React.useState(false);
@@ -25,7 +25,8 @@ export const JournalEntryCardLayout = ({ journalObject, id, currentUser, getAllJ
             purchasePrice: +journalObject.purchasePrice,
             purchaseDate: journalObject.purchaseDate,
             targetPrice: +journalObject.targetPrice,
-            quantity: +journalObject.quantity,
+            quantity: +journalObject.purchaseQuantity,
+            remainingQuantity: (+journalObject.purchaseQuantity),
             notes: journalObject.notes
         }))
     }
@@ -76,7 +77,7 @@ export const JournalEntryCardLayout = ({ journalObject, id, currentUser, getAllJ
         />
         <section className="journal">
             <header className="header">
-                <Link to={`/strategies/${currentStrategyObject.id}/${id}`}>{journalObject.ticker}</Link>
+                <Link to={`/strategies/${currentStrategyObject.title}${currentStrategyObject.id}/${ticker}${id}`} onClick={captureCurrentJournal}>{journalObject.ticker}</Link>
                 <Button id="editButton" variant="secondary" onClick={editButtonClick}>Edit</Button>
                 <Button id="deleteButton" variant="secondary" onClick={deleteButtonClick}>Delete</Button>
             </header>
@@ -93,7 +94,7 @@ export const JournalEntryCardLayout = ({ journalObject, id, currentUser, getAllJ
                 Purchase Date: {journalObject.purchaseDate}
             </div>
             <div className="quantity">
-                Shares Purchased: {journalObject.initialQuantity}
+                Shares Purchased: {journalObject.purchaseQuantity}
                 <NewJournalExitModal />
             </div>
         </section>

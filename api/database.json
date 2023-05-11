@@ -20,9 +20,9 @@
       "userId": 1,
       "title": "CAHOLD",
       "description": "Close above the high of the low day",
-      "rules": "Close above the high of the low day",
+      "rules": "1 - Must be in a sideways or up trend | 2 - Must break resistance | 3 - Must have a small market cap ($250 million - $2 billion) | 4 - Must have a spike in traded shares following  or on day of CAHOLD",
       "risk": "3",
-      "id": 5
+      "id": 1
     },
     {
       "userId": 2,
@@ -30,7 +30,7 @@
       "description": "ad",
       "rules": "ad",
       "risk": "4",
-      "id": 8
+      "id": 2
     },
     {
       "userId": 2,
@@ -38,101 +38,44 @@
       "description": "sssssss",
       "rules": "ssssssss",
       "risk": 1,
-      "id": 10
+      "id": 3
     },
     {
       "userId": 1,
-      "title": "a",
-      "description": "aaaaaaaaaaaa",
-      "rules": "aaaaaaaaaaaaaaaaaa",
-      "risk": 8,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "title": "b",
-      "description": "bbbbbbbbbb",
-      "rules": "bbbbbbbbbbbbbbbbbbbbbb",
-      "risk": "10",
-      "id": 12
+      "title": "50/20 SMA Crossover",
+      "description": "20 day SMA crosses over 50 day SMA trendline.",
+      "rules": "1 - Must be in a sideways or up trend\n| 2 - Must be approaching an earnings report or recently had a good earnings report or news release\n| 3 - Must have a small market cap  ($250 million - $2 billion)\n| 4 - Must have a spike in traded shares following crossover",
+      "risk": 3,
+      "id": 4
     }
   ],
   "journalEntries": [
     {
       "userId": 1,
-      "strategyId": 5,
-      "ticker": "AAPLE",
-      "purchasePrice": 13,
-      "purchaseDate": "2023-05-09",
-      "targetPrice": 20,
-      "notes": "hjhhhhh",
-      "initialQuantity": 11,
-      "currentQuantity": 11,
+      "strategyId": 1,
+      "ticker": "AAPL",
+      "purchasePrice": 137.58,
+      "purchaseDate": "2023-05-02",
+      "targetPrice": 156.47,
+      "notes": "Recent positive earnings report, up trending, trade spike day of CAHOLD, convergence of 20 day and 50 day SMA, but no crossover yet.",
+      "purchaseQuantity": 15,
+      "currentQuantity": 15,
       "id": 1
-    },
-    {
-      "userId": 1,
-      "strategyId": 11,
-      "ticker": "AMZN",
-      "purchasePrice": 12,
-      "purchaseDate": "2023-05-10",
-      "targetPrice": 30,
-      "notes": "hhhhhhhhhhhhhhhhhhh",
-      "initialQuantity": 24,
-      "currentQuantity": 24,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "strategyId": 12,
-      "ticker": "SPI",
-      "purchasePrice": 8,
-      "purchaseDate": "2023-05-10",
-      "targetPrice": 12,
-      "notes": "jjjjjjjjjjjjjjj",
-      "initialQuantity": 10,
-      "currentQuantity": 10,
-      "id": 3
     }
   ],
   "journalExits": [
     {
       "userId": 1,
-      "strategyId": 12,
-      "ticker": "hg",
-      "soldDate": "2023-05-31",
-      "soldPrice": 17,
-      "results": "hhhhhhhhhhhhhhhhhhh",
-      "soldQuantity": 9,
-      "currentQuantity": 12,
-      "targetPriceHit": "",
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "strategyId": 5,
+      "strategyId": 1,
       "entryId": 1,
-      "ticker": "AAPLE",
-      "soldDate": "2023-05-10",
-      "soldPrice": 11,
-      "results": "hhhhhhhhhhhh",
+      "ticker": "AAPL",
+      "soldDate": "2023-05-11",
+      "soldPrice": 158.69,
+      "results": "Met target, x3 resistance bounce",
       "soldQuantity": 10,
       "currentQuantity": null,
       "targetPriceHit": "",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "strategyId": 5,
-      "entryId": 1,
-      "ticker": "AAPLE",
-      "soldDate": "2023-05-10",
-      "soldPrice": 10,
-      "results": "ddddddd",
-      "soldQuantity": 3,
-      "currentQuantity": null,
-      "targetPriceHit": "",
-      "id": 3
+      "id": 1
     }
   ],
   "messages": [],

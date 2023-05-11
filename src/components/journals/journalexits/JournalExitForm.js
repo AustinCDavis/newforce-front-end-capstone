@@ -61,7 +61,7 @@ export const JournalExitForm = (props) => {
             soldPrice: +journal.soldPrice,
             results: journal.results,
             soldQuantity: +journal.soldQuantity,
-            currentQuantity: +(currentJournalObject.initialQuantity - journal.currentQuantity),
+            currentQuantity: +(+currentJournalObject.purchaseQuantity - (+journal.soldQuantity)),
             targetPriceHit: journal.targetPriceHit
 
         }

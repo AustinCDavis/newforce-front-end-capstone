@@ -52,8 +52,8 @@ export const JournalEntryForm = (props) => {
             purchaseDate: journal.purchaseDate,
             targetPrice: +journal.targetPrice,
             notes: journal.notes,
-            initialQuantity: +journal.initialQuantity,
-            currentQuantity: +journal.initialQuantity
+            purchaseQuantity: +journal.purchaseQuantity,
+            currentQuantity: +journal.purchaseQuantity
 
         }
 
